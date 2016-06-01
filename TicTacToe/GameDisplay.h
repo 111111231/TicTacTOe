@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModelController.h"
+#import "Details.h"
+
 
 @interface GameDisplay : UIViewController
 
 - (IBAction)OnSelect:(id)sender;
+
+-(void)drawTitle:(int)xy;
 
 @end

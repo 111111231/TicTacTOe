@@ -9,14 +9,16 @@
 #import "GameDisplay.h"
 
 @interface GameDisplay (){
-    BOOL isSe;
+    int turnOf;
+    Details *details;
 }
 @end
 
 @implementation GameDisplay
 
 - (void)viewDidLoad {
-    isSe = true;
+    turnOf = -1;
+    details = [[Details alloc]init];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -35,21 +37,54 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (IBAction)OnSelect:(id)sender {
-    UIButton *Action = (UIButton*)sender;
-    NSLog(@"%ld",(long)Action.tag);
-    Action.titleLabel.numberOfLines = 1;
-    Action.titleLabel.adjustsFontSizeToFitWidth = YES;
-    Action.titleLabel.lineBreakMode = NSLineBreakByClipping;
-    if(isSe){isSe=false;
-        [Action setTitle:@"X" forState:UIControlStateNormal];}
-    else{isSe=true;
-    [Action setTitle:@"O" forState:UIControlStateNormal];
-    }
-    
-    
-    Action.enabled= NO;
+-(void)systemTag:(int)systemTag playerTag:(int)playerTag{
+    [details systemObject:systemTag playerObject:playerTag];
 }
 
+- (IBAction)OnSelect:(id)sender {
+    UIButton *select = (UIButton*)sender;
+    int tag = (int)select.tag;
+    int index = [ModelController indexOfCell:tag];
+    [details cellIndex:index turnOf:turnOf];
+    
+    
+    
+    
+    
+    
+  //  NSLog(@"%ld",(long)Action.tag);
+ //   Action.titleLabel.numberOfLines = 1;
+ //   Action.titleLabel.adjustsFontSizeToFitWidth = YES;
+ //   Action.titleLabel.lineBreakMode = NSLineBreakByClipping;
+  //  if(isSe){isSe=false;
+  //      [Action setTitle:@"X" forState:UIControlStateNormal];
+//}
+  //  else{isSe=true;
+   // [Action setTitle:@"O" forState:UIControlStateNormal];
+//    }
+    
+    
+ //   Action.enabled= NO;
+    
+  //  int k = [ModelController indexOfButton:90];
+}
+
+-(void)updateTitleOfTurn{
+    if( turnOf == [details getPlayerObject])
+        turnOf = [details getSystemObject];
+    else if( turnOf == [details getSystemObject])
+        turnOf = [details getPlayerObject];
+}
+
+-(void)drawTitle:(int)xy{
+    int tag = [ModelController tagOfCell:xy];
+    NSString* title = [ModelController titleOfCell:turnOf];
+    UIButton *cell = (UIButton *)[self.view viewWithTag:tag];
+    cell.titleLabel.numberOfLines = 1;
+    cell.titleLabel.adjustsFontSizeToFitWidth = YES;
+    cell.titleLabel.lineBreakMode = NSLineBreakByClipping;
+    [cell setTitle:title forState:UIControlStateNormal];
+    [self updateTitleOfTurn];
+    cell.enabled= NO;
+}
 @end

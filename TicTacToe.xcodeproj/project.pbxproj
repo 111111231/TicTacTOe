@@ -18,6 +18,8 @@
 		36012C541CFCB99C00F76C2B /* GameDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 36012C531CFCB99C00F76C2B /* GameDisplay.m */; };
 		36012C581CFCC77800F76C2B /* o.png in Resources */ = {isa = PBXBuildFile; fileRef = 36012C561CFCC77800F76C2B /* o.png */; };
 		36012C591CFCC77800F76C2B /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36012C571CFCC77800F76C2B /* x.png */; };
+		3609FE091CFF4F5B0097333E /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3609FE081CFF4F5B0097333E /* ModelController.m */; };
+		3609FE0C1CFF52360097333E /* Details.m in Sources */ = {isa = PBXBuildFile; fileRef = 3609FE0B1CFF52360097333E /* Details.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		36012C531CFCB99C00F76C2B /* GameDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDisplay.m; sourceTree = "<group>"; };
 		36012C561CFCC77800F76C2B /* o.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = o.png; sourceTree = "<group>"; };
 		36012C571CFCC77800F76C2B /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
+		3609FE071CFF4F5B0097333E /* ModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
+		3609FE081CFF4F5B0097333E /* ModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
+		3609FE0A1CFF52360097333E /* Details.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Details.h; sourceTree = "<group>"; };
+		3609FE0B1CFF52360097333E /* Details.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Details.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 		36012C1E1CFCB7AB00F76C2B /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				3609FE061CFF4F0E0097333E /* Model */,
 				36012C551CFCB9A400F76C2B /* GameDisplay */,
 				36012C221CFCB7AB00F76C2B /* AppDelegate.h */,
 				36012C231CFCB7AB00F76C2B /* AppDelegate.m */,
@@ -157,6 +164,17 @@
 				36012C531CFCB99C00F76C2B /* GameDisplay.m */,
 			);
 			name = GameDisplay;
+			sourceTree = "<group>";
+		};
+		3609FE061CFF4F0E0097333E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3609FE071CFF4F5B0097333E /* ModelController.h */,
+				3609FE081CFF4F5B0097333E /* ModelController.m */,
+				3609FE0A1CFF52360097333E /* Details.h */,
+				3609FE0B1CFF52360097333E /* Details.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +311,8 @@
 			files = (
 				36012C541CFCB99C00F76C2B /* GameDisplay.m in Sources */,
 				36012C271CFCB7AB00F76C2B /* ViewController.m in Sources */,
+				3609FE0C1CFF52360097333E /* Details.m in Sources */,
+				3609FE091CFF4F5B0097333E /* ModelController.m in Sources */,
 				36012C241CFCB7AB00F76C2B /* AppDelegate.m in Sources */,
 				36012C211CFCB7AB00F76C2B /* main.m in Sources */,
 			);
@@ -518,6 +538,7 @@
 				36012C4B1CFCB7AC00F76C2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		36012C4C1CFCB7AC00F76C2B /* Build configuration list for PBXNativeTarget "TicTacToeTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +547,7 @@
 				36012C4E1CFCB7AC00F76C2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		36012C4F1CFCB7AC00F76C2B /* Build configuration list for PBXNativeTarget "TicTacToeUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +556,7 @@
 				36012C511CFCB7AC00F76C2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
