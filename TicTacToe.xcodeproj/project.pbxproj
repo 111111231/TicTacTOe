@@ -20,6 +20,7 @@
 		36012C591CFCC77800F76C2B /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = 36012C571CFCC77800F76C2B /* x.png */; };
 		3609FE091CFF4F5B0097333E /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3609FE081CFF4F5B0097333E /* ModelController.m */; };
 		3609FE0C1CFF52360097333E /* Details.m in Sources */ = {isa = PBXBuildFile; fileRef = 3609FE0B1CFF52360097333E /* Details.m */; };
+		3A6BFE041D0B15E60014EAE3 /* AIMove.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6BFE031D0B15E60014EAE3 /* AIMove.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		3609FE081CFF4F5B0097333E /* ModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
 		3609FE0A1CFF52360097333E /* Details.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Details.h; sourceTree = "<group>"; };
 		3609FE0B1CFF52360097333E /* Details.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Details.m; sourceTree = "<group>"; };
+		3A6BFE021D0B15E60014EAE3 /* AIMove.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIMove.h; sourceTree = "<group>"; };
+		3A6BFE031D0B15E60014EAE3 /* AIMove.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIMove.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,8 @@
 		3609FE061CFF4F0E0097333E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3A6BFE021D0B15E60014EAE3 /* AIMove.h */,
+				3A6BFE031D0B15E60014EAE3 /* AIMove.m */,
 				3609FE071CFF4F5B0097333E /* ModelController.h */,
 				3609FE081CFF4F5B0097333E /* ModelController.m */,
 				3609FE0A1CFF52360097333E /* Details.h */,
@@ -310,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36012C541CFCB99C00F76C2B /* GameDisplay.m in Sources */,
+				3A6BFE041D0B15E60014EAE3 /* AIMove.m in Sources */,
 				36012C271CFCB7AB00F76C2B /* ViewController.m in Sources */,
 				3609FE0C1CFF52360097333E /* Details.m in Sources */,
 				3609FE091CFF4F5B0097333E /* ModelController.m in Sources */,

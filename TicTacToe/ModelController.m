@@ -7,6 +7,7 @@
 //
 
 #import "ModelController.h"
+#import "AIMove.h"
 
 @implementation ModelController
 
@@ -95,6 +96,131 @@
     }
     return -1;
 }
++(int)getTag:(AIMove*)move{
+    switch (move.x) {
+        case 0:
+            switch (move.y) {
+                case 0:
+                    return 11;
+                    break;
+                case 1:
+                    return 22;
+                    break;
+                case 2:
+                    return 33;
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+        case 1:
+            switch (move.y) {
+                case 0:
+                    return 44;
+                    break;
+                case 1:
+                    return 55;
+                    break;
+                case 2:
+                    return 66;
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+        case 2:
+            switch (move.y) {
+                case 0:
+                    return 77;
+                    break;
+                case 1:
+                    return 88;
+                    break;
+                case 2:
+                    return 99;
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+            
+        default:
+            break;
+    }
+    return -1;
+}
++(AIMove*)indexOfButton:(int)tag{
+    /*
+     0 > 11
+     1 > 22
+     2 > 33
+     3 > 44
+     4 > 55
+     5 > 66
+     6 > 77
+     7 > 88
+     8 > 99
+     
+     0 | 1 | 2
+     3 | 4 | 5
+     6 | 7 | 8
+     
+     */
+    AIMove* aIMove = [[AIMove alloc]init];
+    switch (tag) {
+        case 11:
+            aIMove.x = 0;
+            aIMove.y = 0;
+            return aIMove;
+            break;
+        case 22:
+            aIMove.x = 0;
+            aIMove.y = 1;
+            return aIMove;
+            break;
+        case 33:
+            aIMove.x = 0;
+            aIMove.y = 2;
+            return aIMove;
+            break;
+        case 44:
+            aIMove.x = 1;
+            aIMove.y = 0;
+            return aIMove;
+            break;
+        case 55:
+            aIMove.x = 1;
+            aIMove.y = 1;
+            return aIMove;
+            break;
+        case 66:
+            aIMove.x = 1;
+            aIMove.y = 2;
+            return aIMove;
+            break;
+        case 77:
+            aIMove.x = 2;
+            aIMove.y = 0;
+            return aIMove;
+            break;
+        case 88:
+            aIMove.x = 2;
+            aIMove.y = 1;
+            return aIMove;
+            break;
+        case 99:
+            aIMove.x = 2;
+            aIMove.y = 2;
+            return aIMove;
+            break;
+        default:
+            break;
+    }
+    return nil;
+}
 
 +(NSString*)titleOfCell:(int)selection{
     switch (selection) {
@@ -109,6 +235,7 @@
     }
     return @"";
 }
+
 
 
 @end

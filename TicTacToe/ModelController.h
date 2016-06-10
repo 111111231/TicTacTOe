@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class AIMove;
 
 @interface ModelController : NSObject
 
@@ -16,4 +17,6 @@
 
 +(NSString*)titleOfCell:(int)selection;
 
++(AIMove*)indexOfButton:(int)tag;
++(int)getTag:(AIMove*)move;
 @end
