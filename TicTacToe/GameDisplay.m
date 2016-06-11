@@ -82,6 +82,20 @@ typedef enum
 }
 
 - (IBAction)OnSelect:(id)sender {
+    int rv1 = [self checkVictory:board];
+    if(rv1 == ai_player){
+        NSLog(@"AI Won");
+        return;
+    }
+    else if (rv1 == human_player){
+        NSLog(@"Human Won");
+        return;
+        
+    }
+    else if(rv1 == tiePlayer){
+        NSLog(@"Tie");
+        return;
+    }
     UIButton *select = (UIButton*)sender;
     int tag = (int)select.tag;
     int index = [ModelController indexOfCell:tag];
@@ -97,16 +111,46 @@ typedef enum
     AIMove* a = [[AIMove alloc]init];
     
     if(currentPlayer == human_player){
+        
+      
         a.x = [ModelController indexOfButton:tag].x;
         a.y = [ModelController indexOfButton:tag].y;
         [select setImage:[UIImage imageNamed:@"o.png"] forState:UIControlStateNormal];
         board[a.x][a.y]= omove;
+        int rv = [self checkVictory:board];
+        if(rv == ai_player){
+            NSLog(@"AI Won");
+            return;
+        }
+        else if (rv == human_player){
+            NSLog(@"Human Won");
+            return;
+
+        }
+        else if(rv == tiePlayer){
+            NSLog(@"Tie");
+            return;
+        }
         currentPlayer = ai_player;
         a = [self getBestMove:board with:ai_player];
         int tagTemp = [ModelController getTag:a];
         UIButton *random = (UIButton *)[self.view viewWithTag:tagTemp];
     [random setImage:[UIImage imageNamed:@"x.png"] forState:UIControlStateNormal];
         board[a.x][a.y]= xmove;
+        int rv2 = [self checkVictory:board];
+        if(rv2 == ai_player){
+            NSLog(@"AI Won");
+            return;
+        }
+        else if (rv2 == human_player){
+            NSLog(@"Human Won");
+            return;
+            
+        }
+        else if(rv2 == tiePlayer){
+            NSLog(@"Tie");
+            return;
+        }
         
     }
     
@@ -224,10 +268,10 @@ typedef enum
     
     int rv = [self checkVictory:board];
     if(rv == ai_player){
-        return [[AIMove alloc]initWithSize:10];
+        return [[AIMove alloc]initWithSize:100];
     }
     else if (rv == human_player){
-        return [[AIMove alloc]initWithSize:-10];
+        return [[AIMove alloc]initWithSize:-100];
     }
     else if(rv == tiePlayer){
         return [[AIMove alloc]initWithSize:0];
@@ -247,6 +291,7 @@ typedef enum
                 else{
                     move.size = [[self getBestMove:board with:ai_player] size];
                 }
+                move.size = move.size -1;
                 [moves addObject:move];
                 board[x][y] = NO_VALUE;
             }
