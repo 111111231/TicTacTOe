@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0gd-Jo-67N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="0gd-Jo-67N">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -60,7 +60,7 @@
                                             <action selector="OnSelect:" destination="avh-ZF-96I" eventType="touchUpInside" id="OXY-hh-nlV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="22" contentMode="scaleToFill" verticalHuggingPriority="253" horizontalCompressionResistancePriority="752" misplaced="YES" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixy-i0-v9t">
+                                    <button opaque="NO" tag="22" contentMode="scaleToFill" verticalHuggingPriority="253" horizontalCompressionResistancePriority="752" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixy-i0-v9t">
                                         <rect key="frame" x="103" y="0.0" width="94" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
@@ -68,14 +68,14 @@
                                             <action selector="OnSelect:" destination="avh-ZF-96I" eventType="touchUpInside" id="MRu-zM-4uv"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZv-u2-BmQ">
-                                        <rect key="frame" x="23" y="4" width="48" height="52"/>
+                                    <button opaque="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZv-u2-BmQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="93" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="OnSelect:" destination="avh-ZF-96I" eventType="touchUpInside" id="DWN-Mp-ST2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="55" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" misplaced="YES" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4M-aV-j3b">
+                                    <button opaque="NO" tag="55" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4M-aV-j3b">
                                         <rect key="frame" x="103" y="70" width="94" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
@@ -99,7 +99,7 @@
                                             <action selector="OnSelect:" destination="avh-ZF-96I" eventType="touchUpInside" id="rIW-fF-tSa"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="88" contentMode="scaleToFill" horizontalHuggingPriority="251" misplaced="YES" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAG-g0-wep">
+                                    <button opaque="NO" tag="88" contentMode="scaleToFill" horizontalHuggingPriority="251" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAG-g0-wep">
                                         <rect key="frame" x="103" y="140" width="94" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>

@@ -21,8 +21,11 @@ typedef enum
     ai_player = 1,
     human_player = 2,
     tiePlayer = 3,
-    noPlayer = -1
-    
+    noPlayer = -1,
+    winRow = 11,
+    winCol = 22,
+    winLeftD = 33,
+    winRightD = 44
 } PLAYER;
 @interface GameDisplay (){
     int turnOf;
@@ -32,6 +35,7 @@ typedef enum
     MOVES xmove;
     MOVES omove;
     MOVES noMove;
+    int winningMove;
 }
 @end
 
@@ -85,6 +89,8 @@ typedef enum
     int rv1 = [self checkVictory:board];
     if(rv1 == ai_player){
         NSLog(@"AI Won");
+        [self setVictory:rv1];
+
         return;
     }
     else if (rv1 == human_player){
@@ -120,6 +126,8 @@ typedef enum
         int rv = [self checkVictory:board];
         if(rv == ai_player){
             NSLog(@"AI Won");
+            [self setVictory:rv];
+
             return;
         }
         else if (rv == human_player){
@@ -140,6 +148,7 @@ typedef enum
         int rv2 = [self checkVictory:board];
         if(rv2 == ai_player){
             NSLog(@"AI Won");
+            [self setVictory:rv2];
             return;
         }
         else if (rv2 == human_player){
@@ -206,7 +215,10 @@ typedef enum
                     break;
                 }
             }
-            if (victory) return c;
+            if (victory) {
+               // winningMove = winRow;
+                return c;
+            }
         }
     }
     
@@ -221,7 +233,10 @@ typedef enum
                     break;
                 }
             }
-            if (victory) return c;
+            if (victory) {
+            //    winningMove = winCol;
+                return c;
+            }
         }
     }
     
@@ -235,7 +250,9 @@ typedef enum
                 break;
             }
         }
-        if (victory) return c;
+        if (victory) {
+         //   winningMove = winLeftD;
+            return c;}
     }
     
     // Check top right diagonal
@@ -248,7 +265,9 @@ typedef enum
                 break;
             }
         }
-        if (victory) return c;
+        if (victory) {
+        //    winningMove = winRightD;
+            return c;}
     }
     
     // Check for tie game
@@ -298,6 +317,7 @@ typedef enum
             
         }
         
+    
     }
     
     int bestMove = 0;
@@ -322,5 +342,161 @@ typedef enum
         }
     }
     return moves[bestMove];
+}
+-(void)setVictory:(int)victor{
+    int array[9];
+    int position=0;
+    int loser=0;
+      if(victor==ai_player){
+          loser = human_player;
+      }else if(victor == human_player){
+          loser = ai_player;
+      }
+    
+    for(int i=0;i<3;i++){
+            if(board[0][i]==loser){
+                array[position]=human_player;
+            }
+           position++;
+        }
+        for(int i=0;i<3;i++){
+            if(board[1][i]==loser){
+                array[position]=human_player;
+            }
+            position++;
+        }
+        for(int i=0;i<3;i++){
+            if(board[2][i]==loser){
+                array[position]=human_player;
+            }
+            position++;
+        }
+    [self drawBackground:array loser:loser imagename:@"o.png"];
+    int winArray[3];
+    BOOL get=NO;
+    // for rows
+    for(int i=0 ; i<3 ; i++){
+    if(board[i][0]==victor && board[i][1]==victor && board[i][2]==victor){
+        if (i==0) {
+        for(int k=0;k<3;k++)
+        winArray[k]= k;
+             get=YES;
+            break;
+        }
+        if (i==1){
+            for(int k=0;k<3;k++)
+            winArray[k]= k+3;
+            get=YES;
+            break;
+
+        }
+        if (i==2){
+            for(int k=0;k<3;k++)
+                winArray[k]= k+6;
+            get=YES;
+            break;
+
+        }
+    }
+    }
+        for(int i=0 ; i<3 ; i++){
+            if(board[0][i]==victor && board[1][i]==victor && board[2][i]==victor){
+                if (i==0) {
+                    int p=0;
+                    for(int k=0;k<3;k++){
+                        winArray[k]= k+p;
+                        p=p+2;
+                    }
+                    get=YES;
+                    break;
+                }
+                if (i==1){
+                    int p=1;
+                    for(int k=0;k<3;k++){
+                        winArray[k]= k+p;
+                    p=p+2;
+                    }
+                    get=YES;
+                    break;
+
+                }
+                if (i==2){
+                    int p=2;
+                    for(int k=0;k<3;k++){
+                        winArray[k]= k+p;
+                        p=p+2;
+
+                    }
+                    get=YES;
+                    break;
+
+                }
+            }
+        
+    }
+        if(board[0][0]==victor && board[1][1]==victor && board[2][2]==victor){
+//            winArray[0]= 0;
+//            winArray[1]= 4;
+//            winArray[2]= 8;
+            int p=0;
+            for(int k=0;k<3;k++){
+                winArray[k]= p;
+                p=p+4;
+                
+            }
+            get=YES;
+
+    }
+
+    if(board[0][2]==victor && board[1][1]==victor && board[2][0]==victor){
+//        winArray[0]= 2;
+//        winArray[1]= 4;
+//        winArray[2]= 6;
+        int p=2;
+        for(int k=0;k<3;k++){
+            winArray[k]= p;
+            p=p+2;
+            
+        }
+        get=YES;
+    }
+    if(get)
+        [self drawBackground:victor with:winArray];
+}
+-(void)drawBackground:(int[])xy loser:(int)loser imagename:(NSString*)imagename{
+    for(int i=0 ; i<9 ; i++){
+        if(xy[i]==loser){
+    int tag = [ModelController tagOfCell:i];
+ //   NSString* title = [ModelController titleOfCell:turnOf];
+    UIButton *cell = (UIButton *)[self.view viewWithTag:tag];
+    [cell setBackgroundColor:[UIColor grayColor]];
+    cell.enabled = YES;
+    [cell setImage:[UIImage imageNamed:imagename] forState:UIControlStateNormal];
+        }
+    }
+//
+//    cell.titleLabel.numberOfLines = 1;
+//    cell.titleLabel.adjustsFontSizeToFitWidth = YES;
+//    cell.titleLabel.lineBreakMode = NSLineBreakByClipping;
+//    [cell setTitle:title forState:UIControlStateNormal];
+//    [self updateTitleOfTurn];
+//    cell.enabled= NO;
+}
+-(void)drawBackground:(int)victor with:(int[])xy {
+    for(int i=0;i<3;i++){
+            int tag = [ModelController tagOfCell:xy[i]];
+            //   NSString* title = [ModelController titleOfCell:turnOf];
+            UIButton *cell = (UIButton *)[self.view viewWithTag:tag];
+            [cell setBackgroundColor:[UIColor cyanColor]];
+            cell.enabled = YES;
+            [cell setImage:[UIImage imageNamed:@"x.png"] forState:UIControlStateNormal];
+    }
+    //
+    //    cell.titleLabel.numberOfLines = 1;
+    //    cell.titleLabel.adjustsFontSizeToFitWidth = YES;
+    //    cell.titleLabel.lineBreakMode = NSLineBreakByClipping;
+    //    [cell setTitle:title forState:UIControlStateNormal];
+    //    [self updateTitleOfTurn];
+    //    cell.enabled= NO;
 }
 @end
